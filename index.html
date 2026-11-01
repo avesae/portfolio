@@ -572,12 +572,22 @@ if (window.THREE && initScene() && !reduceMotion) {
   const loader = document.getElementById("loader"), bar = loader.querySelector("i"), pct = document.getElementById("load-pct");
   loader.hidden = false;
   const t0 = performance.now();
+  let finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    bar.style.width = "100%"; pct.textContent = "100%";
+    loader.classList.add("done");
+    setTimeout(() => { loader.hidden = true; }, 600);
+  };
+  // safety net: animation frames can stall in background tabs, so never keep the loader longer than this
+  setTimeout(finish, 1400);
   (function load(now) {
+    if (finished) return;
     const p = Math.min(1, (now - t0) / 900);
     bar.style.width = p * 100 + "%"; pct.textContent = Math.round(p * 100) + "%";
     if (p < 1) return requestAnimationFrame(load);
-    loader.classList.add("done");
-    setTimeout(() => { loader.hidden = true; }, 600);
+    finish();
   })(t0);
 }
 </script>
