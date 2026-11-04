@@ -205,6 +205,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
 }
 .hero .wrap { padding-block: 64px 72px; position: relative; z-index: 2; width: 100%; }
 #scene { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+.hero.still { background: var(--deep) url(images/hero-still.webp) center / cover no-repeat; }
+.hero.still #scene { display: none; }
+@media (max-width: 700px) { .hero.still { background-image: url(images/hero-still-m.webp); } }
 .hero::before {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(90deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.55) 42%, rgba(0,0,0,0) 72%), linear-gradient(0deg, rgba(0,0,0,.65), transparent 35%);
@@ -580,7 +583,6 @@ footer .links { display: inline-flex; align-items: center; gap: 20px; flex-wrap:
   </div>
 </footer>
 
-<script defer src="three.min.js"></script>
 <script>
 const T = {
   en: {
@@ -680,9 +682,6 @@ function initScene() {
   const hero = document.querySelector(".hero"), canvas = document.getElementById("scene");
   let renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: "high-performance" }); } catch (e) { return false; }
-  // software WebGL (no GPU acceleration) turns every frame into a long task: draw one still frame instead
-  const gl = renderer.getContext(), dbg = gl.getExtension("WEBGL_debug_renderer_info");
-  const software = /swiftshader|llvmpipe|software|basic render/i.test(dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : "");
   const lite = matchMedia("(max-width: 700px), (pointer: coarse)").matches;
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
   renderer.setClearColor(0x000000, 1);
@@ -773,11 +772,6 @@ function initScene() {
     renderer.render(scene, camera);
     if (running) requestAnimationFrame(frame);
   }
-  if (reduceMotion || software) {
-    camera.lookAt(lookX, 2.2, -40); renderer.render(scene, camera);
-    addEventListener("resize", () => renderer.render(scene, camera));
-    return true;
-  }
   // drive only while the intro is on screen
   new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting && !running) { running = true; last = performance.now(); requestAnimationFrame(frame); }
@@ -786,13 +780,26 @@ function initScene() {
   return true;
 }
 
-// three.js is deferred and runs right before DOMContentLoaded
-addEventListener("DOMContentLoaded", () => {
-if (window.THREE && initScene() && !reduceMotion) {
+// The 3D intro needs a real GPU. Without one (software WebGL), with reduced motion or if anything
+// fails, the hero shows a pre-rendered frame of the same scene, and three.js is never downloaded.
+const stillHero = () => document.querySelector(".hero").classList.add("still");
+function gpuRenderer() {
+  try {
+    const gl = document.createElement("canvas").getContext("webgl");
+    if (!gl) return null;
+    const dbg = gl.getExtension("WEBGL_debug_renderer_info");
+    const name = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : "";
+    const lose = gl.getExtension("WEBGL_lose_context"); if (lose) lose.loseContext();
+    return name;
+  } catch (e) { return null; }
+}
+const gpu = reduceMotion ? null : gpuRenderer();
+if (gpu === null || /swiftshader|llvmpipe|software|basic render/i.test(gpu)) stillHero();
+else {
   const loader = document.getElementById("loader"), bar = loader.querySelector("i"), pct = document.getElementById("load-pct");
   loader.hidden = false;
   const t0 = performance.now();
-  let finished = false;
+  let finished = false, ready = false;
   const finish = () => {
     if (finished) return;
     finished = true;
@@ -800,17 +807,22 @@ if (window.THREE && initScene() && !reduceMotion) {
     loader.classList.add("done");
     setTimeout(() => { loader.hidden = true; }, 600);
   };
+  const script = document.createElement("script");
+  script.src = "three.min.js";
+  script.onload = () => { if (!initScene()) stillHero(); ready = true; };
+  script.onerror = () => { stillHero(); ready = true; };
+  document.head.append(script);
   // safety net: animation frames can stall in background tabs, so never keep the loader longer than this
-  setTimeout(finish, 1400);
+  setTimeout(() => { if (!ready) stillHero(); finish(); }, 4000);
   (function load(now) {
     if (finished) return;
-    const p = Math.min(1, (now - t0) / 900);
+    // the bar fills to 90% on its own, the rest waits for the scene
+    const p = Math.min(ready ? 1 : 0.9, (now - t0) / 900);
     bar.style.width = p * 100 + "%"; pct.textContent = Math.round(p * 100) + "%";
     if (p < 1) return requestAnimationFrame(load);
     finish();
   })(t0);
 }
-});
 </script>
 </body>
 </html>
