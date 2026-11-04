@@ -136,6 +136,12 @@ section { padding-block: 72px 8px; scroll-margin-top: 72px; }
 .svc .ico svg { width: 24px; height: 24px; }
 .svc h3 { font-family: var(--display); font-weight: 800; font-size: 1.05rem; line-height: 1.2; margin: 6px 0 0; }
 .svc p { margin: 0; color: var(--muted); font-size: 15px; }
+.prices { margin-top: 28px; }
+.prices .row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 20px; flex-wrap: wrap; padding: 16px 22px; border-bottom: 2px solid var(--ink); }
+.prices .row:last-child { border-bottom: 0; }
+.prices .row span:first-child { font-weight: 700; min-width: 0; }
+.prices .row b { font-family: var(--display); font-weight: 800; color: var(--accent); white-space: nowrap; }
+.price-note { margin: 14px 0 0; font-size: 14px; color: var(--muted); }
 .price { margin-top: 26px; display: inline-flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-weight: 700; }
 .price span:first-child { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: var(--bg); padding: 4px 8px; }
 
@@ -146,6 +152,7 @@ section { padding-block: 72px 8px; scroll-margin-top: 72px; }
 .skill h3 { font-family: var(--display); font-weight: 800; font-size: 1rem; margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
 .skill h3::before { content: ""; width: 14px; height: 14px; background: var(--accent); border: 2px solid var(--ink); flex-shrink: 0; }
 .skill ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.skill.wide { grid-column: 1 / -1; }
 .skill li { font-weight: 700; font-size: 14px; padding: 6px 12px; border: 2px solid var(--ink); background: var(--bg); }
 
 /* projects */
@@ -154,6 +161,23 @@ section { padding-block: 72px 8px; scroll-margin-top: 72px; }
 .proj a { text-decoration: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 26px; transition: transform .15s, box-shadow .15s; }
 .proj a:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--shadow); }
 .proj h3 { font-family: var(--display); font-weight: 800; font-size: 1.25rem; margin: 0 0 4px; }.proj p { margin: 0; color: var(--muted); font-weight: 500; }
+.case { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); margin-bottom: 8px; }
+.case .shot { display: block; background: var(--deep); border-right: 2px solid var(--ink); }
+.case .shot img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; }
+.case .info { padding: 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.case .kind { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.case h3 { font-family: var(--display); font-weight: 800; font-size: clamp(1.2rem, 2.4vw, 1.5rem); line-height: 1.2; margin: 0; }
+.case p { margin: 0; max-width: 60ch; }
+.case .law { border-left: 4px solid var(--accent); padding-left: 14px; }
+.stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.stack li { font: 700 12px var(--mono); padding: 4px 10px; border: 2px solid var(--ink); background: var(--bg); }
+.case .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 6px; }
+.case .links a { font-family: var(--display); font-weight: 800; font-size: 13px; text-transform: uppercase; text-decoration: none; padding: 10px 16px; border: 2px solid var(--ink); transition: transform .15s; }
+.case .links a:hover { transform: translate(-2px, -2px); }
+.case .links .demo { background: var(--accent); color: var(--on-accent); box-shadow: 4px 4px 0 var(--ink); }
+@media (max-width: 760px) { .case { grid-template-columns: 1fr; } .case .shot { border-right: 0; border-bottom: 2px solid var(--ink); } }
+.sub { font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 40px 0 16px; }
+.proj.pets { grid-template-columns: 1fr; }
 .proj .arrow { width: 46px; height: 46px; flex-shrink: 0; display: grid; place-items: center; background: var(--accent); color: var(--on-accent); border: 2px solid var(--ink); font-size: 22px; font-weight: 900; }
 
 /* contact */
@@ -296,7 +320,13 @@ footer .links { display: inline-flex; align-items: center; gap: 20px; flex-wrap:
           <p data-i18n="s4_d">Быстрые MVP и решения с применением искусственного интеллекта.</p>
         </article>
       </div>
-      <div class="price"><span data-i18n="k_price">Стоимость</span><span data-i18n="v_price">По договорённости, после обсуждения задачи</span></div>
+      <div class="price"><span data-i18n="k_price">Стоимость</span></div>
+      <div class="box prices">
+        <div class="row"><span data-i18n="pr1">Лендинг с формой заявки и документами по 152-ФЗ</span><b data-i18n="pr1v">от 15 000 ₽</b></div>
+        <div class="row"><span data-i18n="pr2">Многостраничный сайт</span><b data-i18n="pr2v">от 40 000 ₽</b></div>
+        <div class="row"><span data-i18n="pr4">Доработка готового сайта под 152-ФЗ: согласие, cookie-баннер, документы</span><b data-i18n="pr4v">от 5 000 ₽</b></div>
+      </div>
+      <p class="price-note" data-i18n="pr_note">Это ориентир. Точную стоимость назову после обсуждения задачи.</p>
     </div>
   </section>
 
@@ -304,10 +334,11 @@ footer .links { display: inline-flex; align-items: center; gap: 20px; flex-wrap:
     <div class="wrap">
       <div class="sec-head"><span class="tag">03</span><h2 data-i18n="t_skills">Навыки</h2></div>
       <div class="skills">
-        <div class="box skill"><h3 data-i18n="g1">Языки</h3><ul><li>Python</li><li>HTML</li><li>CSS</li></ul></div>
-        <div class="box skill"><h3 data-i18n="g2">Разработка</h3><ul><li>Backend</li><li data-i18n="g2b">Веб-сайты</li><li>API</li></ul></div>
+        <div class="box skill"><h3 data-i18n="g1">Языки</h3><ul><li>Python</li><li>JavaScript</li><li>TypeScript</li><li>HTML</li><li>CSS</li></ul></div>
+        <div class="box skill"><h3 data-i18n="g2">Разработка</h3><ul><li>Next.js</li><li>Tailwind CSS</li><li>Backend</li><li>API</li><li data-i18n="g2b">Веб-сайты</li></ul></div>
         <div class="box skill"><h3 data-i18n="g3">Инструменты</h3><ul><li>Git</li><li>GitHub</li><li data-i18n="g3d">ИИ-ассистенты</li></ul></div>
         <div class="box skill"><h3 data-i18n="g4">Личные качества</h3><ul><li data-i18n="g4a">Командная работа</li><li data-i18n="g4b">Быстрое обучение</li><li data-i18n="g4c">Работа в дедлайн</li></ul></div>
+        <div class="box skill wide"><h3 data-i18n="g5">Сайты под 152-ФЗ и требования Роскомнадзора</h3><ul><li data-i18n="g5a">Согласие на обработку данных с фиксацией</li><li data-i18n="g5b">Cookie-баннер с выбором категорий</li><li data-i18n="g5c">Политика и документы</li><li data-i18n="g5d">Хранение заявок в России</li></ul></div>
       </div>
     </div>
   </section>
@@ -315,11 +346,24 @@ footer .links { display: inline-flex; align-items: center; gap: 20px; flex-wrap:
   <section id="projects">
     <div class="wrap">
       <div class="sec-head"><span class="tag">04</span><h2 data-i18n="t_projects">Проекты</h2></div>
-      <div class="proj">
-        <a class="box" href="https://openroute-agency.netlify.app" target="_blank" rel="noopener">
-          <span><h3>Openroute</h3><p data-i18n="p1">Сайт туристического агентства</p></span>
-          <span class="arrow" aria-hidden="true">↗</span>
+      <article class="box case">
+        <a class="shot" href="https://openroute-agency.netlify.app" target="_blank" rel="noopener" aria-label="Openroute">
+          <img src="images/openroute.jpg" width="800" height="500" alt="Главная страница сайта Openroute" loading="lazy">
         </a>
+        <div class="info">
+          <span class="kind" data-i18n="c1_kind">Кейс · Сайт</span>
+          <h3 data-i18n="c1_t">Openroute — сайт туристического агентства</h3>
+          <p data-i18n="c1_d">Многостраничный сайт на двух языках: каталог туров с фильтрами, квиз подбора, калькулятор стоимости, ИИ-ассистент.</p>
+          <p class="law" data-i18n="c1_law">Сделан под российское законодательство: согласие на обработку данных по 152-ФЗ с фиксацией, cookie-баннер с выбором категорий, Яндекс Метрика и Карты, отправка заявок через российскую почту.</p>
+          <ul class="stack"><li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li></ul>
+          <div class="links">
+            <a class="demo" href="https://openroute-agency.netlify.app" target="_blank" rel="noopener" data-i18n="c_demo">Демо ↗</a>
+            <a class="code" href="https://github.com/avesae/Openroute" target="_blank" rel="noopener" data-i18n="c_code">Код на GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+      <p class="sub" data-i18n="t_pets">Пет-проекты</p>
+      <div class="proj pets">
         <a class="box" href="https://minigamesave.netlify.app" target="_blank" rel="noopener">
           <span><h3>MiniGames</h3><p data-i18n="p2">Сайт с мини-играми</p></span>
           <span class="arrow" aria-hidden="true">↗</span>
@@ -408,11 +452,20 @@ const T = {
     s2_t: "Web development", s2_d: "Websites, landing pages and web services built for your needs.",
     s3_t: "Automation", s3_d: "Scripts and integrations that save time on routine work.",
     s4_t: "Prototypes & AI", s4_d: "Fast MVPs and solutions that use artificial intelligence.",
-    k_price: "Pricing", v_price: "Negotiable, after we discuss the task",
+    k_price: "Pricing",
+    pr1: "Landing page with a request form and 152-FZ documents", pr1v: "from 15,000 ₽",
+    pr2: "Multi-page website", pr2v: "from 40,000 ₽",
+    pr4: "Bringing an existing site in line with 152-FZ: consent, cookie banner, documents", pr4v: "from 5,000 ₽",
+    pr_note: "These are starting prices. I'll give an exact quote after we discuss the task.",
     t_skills: "Skills",
     g1: "Languages", g2: "Development", g2b: "Websites", g3: "Tools", g3d: "AI assistants",
     g4: "Soft skills", g4a: "Teamwork", g4b: "Fast learner", g4c: "Working to deadlines",
-    t_projects: "Projects", p1: "Travel agency website", p2: "Mini-games website",
+    t_projects: "Projects", p2: "Mini-games website", t_pets: "Pet projects",
+    c1_kind: "Case · Website", c1_t: "Openroute — travel agency website",
+    c1_d: "A bilingual multi-page website: tour catalog with filters, tour-matching quiz, price calculator, AI assistant.",
+    c1_law: "Built for Russian law: 152-FZ personal data consent with logging, cookie banner with category choice, Yandex Metrica and Maps, requests sent via a Russian email service.",
+    c_demo: "Demo ↗", c_code: "Code on GitHub ↗",
+    g5: "Websites compliant with 152-FZ and Roskomnadzor rules", g5a: "Data processing consent with logging", g5b: "Cookie banner with categories", g5c: "Policy and documents", g5d: "Storing requests in Russia",
     t_contact: "Let's work together",
     c_text: "Have a task or an idea? Message me by email or on Telegram, I'll be happy to discuss the details. You can find code samples on my GitHub.",
     c_mail: "Email", copy: "Copy", copied: "Copied",
