@@ -10,7 +10,138 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0a0d12">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0d12'/%3E%3Crect x='2' y='2' width='28' height='28' fill='none' stroke='%23eaf5ff' stroke-width='2.5'/%3E%3Ctext x='15' y='21' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='12' fill='%23eaf5ff' text-anchor='middle'%3EIS%3C/text%3E%3Crect x='22' y='22' width='5' height='5' fill='%238fd3ff'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="fonts.css">
+<link rel="preload" href="fonts/Unbounded-cyrillic-4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Manrope-cyrillic-2.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/JetBrainsMono-cyrillic-0.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/JetBrainsMono-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/JetBrainsMono-cyrillic-0.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/JetBrainsMono-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/Manrope-cyrillic-2.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/Manrope-latin-3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/Manrope-cyrillic-2.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/Manrope-latin-3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/Manrope-cyrillic-2.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/Manrope-latin-3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/Unbounded-cyrillic-4.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/Unbounded-latin-5.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(fonts/Unbounded-cyrillic-4.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(fonts/Unbounded-latin-5.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(fonts/Unbounded-cyrillic-4.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(fonts/Unbounded-latin-5.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
 <style>
 /* Layout: pure-black hero band, then thick-outlined blocks with hard offset shadows; light sky blue is the single loud accent. Deliberately one dark look. */
 :root {
@@ -168,6 +299,7 @@ section { padding-block: 72px 8px; scroll-margin-top: 72px; }
 .proj h3 { font-family: var(--display); font-weight: 800; font-size: 1.25rem; margin: 0 0 4px; }.proj p { margin: 0; color: var(--muted); font-weight: 500; }
 .case { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); margin-bottom: 28px; }
 .case .shot { display: block; background: var(--deep); border-right: 2px solid var(--ink); }
+.case .shot picture { display: contents; }
 .case .shot img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; }
 .case .info { padding: 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .case .kind { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
@@ -351,7 +483,7 @@ footer .links { display: inline-flex; align-items: center; gap: 20px; flex-wrap:
       <div class="sec-head"><span class="tag">04</span><h2 data-i18n="t_projects">Проекты</h2></div>
       <article class="box case">
         <a class="shot" href="https://fade-and-blade-kappa.vercel.app" target="_blank" rel="noopener" aria-label="Fade &amp; Blade">
-          <img src="images/barbershop.jpg" width="800" height="500" alt="Главная страница сайта барбершопа Fade &amp; Blade" loading="lazy">
+          <picture><source type="image/webp" srcset="images/barbershop-480.webp 480w, images/barbershop.webp 800w" sizes="(max-width: 760px) 100vw, 600px"><img src="images/barbershop.jpg" width="800" height="500" alt="Главная страница сайта барбершопа Fade &amp; Blade" loading="lazy" decoding="async"></picture>
         </a>
         <div class="info">
           <span class="kind" data-i18n="c2_kind">Кейс · Backend</span>
@@ -366,7 +498,7 @@ footer .links { display: inline-flex; align-items: center; gap: 20px; flex-wrap:
       </article>
       <article class="box case">
         <a class="shot" href="https://openroute-agency.netlify.app" target="_blank" rel="noopener" aria-label="Openroute">
-          <img src="images/openroute.jpg" width="800" height="500" alt="Главная страница сайта Openroute" loading="lazy">
+          <picture><source type="image/webp" srcset="images/openroute-480.webp 480w, images/openroute.webp 800w" sizes="(max-width: 760px) 100vw, 600px"><img src="images/openroute.jpg" width="800" height="500" alt="Главная страница сайта Openroute" loading="lazy" decoding="async"></picture>
         </a>
         <div class="info">
           <span class="kind" data-i18n="c1_kind">Кейс · Сайт</span>
@@ -448,7 +580,7 @@ footer .links { display: inline-flex; align-items: center; gap: 20px; flex-wrap:
   </div>
 </footer>
 
-<script src="three.min.js"></script>
+<script defer src="three.min.js"></script>
 <script>
 const T = {
   en: {
@@ -547,9 +679,12 @@ const tok = v => getComputedStyle(document.documentElement).getPropertyValue(v).
 function initScene() {
   const hero = document.querySelector(".hero"), canvas = document.getElementById("scene");
   let renderer;
-  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); } catch (e) { return false; }
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: "high-performance" }); } catch (e) { return false; }
+  // software WebGL (no GPU acceleration) turns every frame into a long task: draw one still frame instead
+  const gl = renderer.getContext(), dbg = gl.getExtension("WEBGL_debug_renderer_info");
+  const software = /swiftshader|llvmpipe|software|basic render/i.test(dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : "");
   const lite = matchMedia("(max-width: 700px), (pointer: coarse)").matches;
-  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, lite ? 1.5 : 2));
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
   renderer.setClearColor(0x000000, 1);
   const accent = new THREE.Color(tok("--accent"));
 
@@ -569,26 +704,34 @@ function initScene() {
   const glowMat = new THREE.MeshBasicMaterial({ color: accent });
   const road = new THREE.Mesh(new THREE.PlaneGeometry(5.2, 400), new THREE.MeshBasicMaterial({ color: 0x02070d }));
   road.rotation.x = -Math.PI / 2; road.position.set(0, 0.01, -100); scene.add(road);
-  [-2.6, 2.6].forEach(x => {
-    const edge = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.02, 400), glowMat);
-    edge.position.set(x, 0.02, -100); scene.add(edge);
-  });
-  const dashes = [], dashGeo = new THREE.PlaneGeometry(0.12, 1.4);
-  for (let i = 0; i < 30; i++) {
-    const d = new THREE.Mesh(dashGeo, glowMat);
-    d.rotation.x = -Math.PI / 2; d.position.set(0, 0.02, 6 - i * 4); scene.add(d); dashes.push(d);
-  }
+  // static parts are merged into a few big geometries, so a frame is about ten draw calls
+  const merged = parts => {
+    const pos = [];
+    parts.forEach(g => { const a = (g.index ? g.toNonIndexed() : g).attributes.position.array; for (let i = 0; i < a.length; i++) pos.push(a[i]); });
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+    return g;
+  };
+  scene.add(new THREE.Mesh(merged([-2.6, 2.6].map(x => new THREE.BoxGeometry(0.08, 0.02, 400).translate(x, 0.02, -100))), glowMat));
+  // dashes repeat every 4 units, so the whole strip only moves within one period
+  const dashes = new THREE.Mesh(merged(Array.from({ length: 30 }, (_, i) =>
+    new THREE.PlaneGeometry(0.12, 1.4).rotateX(-Math.PI / 2).translate(0, 0.02, 6 - i * 4))), glowMat);
+  scene.add(dashes);
 
-  const towers = [];
-  const edgeMat = new THREE.LineBasicMaterial({ color: accent, transparent: true, opacity: 0.8 });
-  const bodyMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+  // the city is one tile DEPTH long drawn twice, end to end, and loops by moving the pair
+  const bodies = [], edges = [];
   for (let i = 0; i < (lite ? 40 : 90); i++) {
     const w = 1.5 + Math.random() * 3, d = 1.5 + Math.random() * 3, h = 2 + Math.random() * Math.random() * 22;
-    const geo = new THREE.BoxGeometry(w, h, d), tower = new THREE.Group();
-    tower.add(new THREE.Mesh(geo, bodyMat), new THREE.LineSegments(new THREE.EdgesGeometry(geo), edgeMat));
-    tower.position.set((i % 2 ? 1 : -1) * (5 + Math.random() * 22), h / 2, 6 - Math.random() * DEPTH);
-    scene.add(tower); towers.push(tower);
+    const x = (i % 2 ? 1 : -1) * (5 + Math.random() * 22), z = 6 - Math.random() * DEPTH;
+    [0, -DEPTH].forEach(off => {
+      const geo = new THREE.BoxGeometry(w, h, d).translate(x, h / 2, z + off);
+      bodies.push(geo); edges.push(new THREE.EdgesGeometry(geo));
+    });
   }
+  const city = new THREE.Group();
+  city.add(new THREE.Mesh(merged(bodies), new THREE.MeshBasicMaterial({ color: 0x000000 })),
+    new THREE.LineSegments(merged(edges), new THREE.LineBasicMaterial({ color: accent, transparent: true, opacity: 0.8 })));
+  scene.add(city);
 
   // striped retro sun on the horizon
   const sc = document.createElement("canvas"); sc.width = sc.height = 256;
@@ -622,15 +765,19 @@ function initScene() {
   function frame(now) {
     const dz = 9 * Math.min((now - last) / 1000, 0.05); last = now;
     grid.position.z = (grid.position.z + dz) % 2;
-    dashes.forEach(d => { d.position.z += dz; if (d.position.z > 8) d.position.z -= 120; });
-    towers.forEach(t => { t.position.z += dz; if (t.position.z > 10) t.position.z -= DEPTH; });
+    dashes.position.z = (dashes.position.z + dz) % 4;
+    city.position.z = (city.position.z + dz) % DEPTH;
     camera.position.x += (mx * 1.2 - camera.position.x) * 0.05;
     camera.position.y += (2.4 - my * 0.6 - camera.position.y) * 0.05;
     camera.lookAt(lookX + camera.position.x * 0.4, 2.2, -40);
     renderer.render(scene, camera);
     if (running) requestAnimationFrame(frame);
   }
-  if (reduceMotion) { camera.lookAt(lookX, 2.2, -40); renderer.render(scene, camera); return true; }
+  if (reduceMotion || software) {
+    camera.lookAt(lookX, 2.2, -40); renderer.render(scene, camera);
+    addEventListener("resize", () => renderer.render(scene, camera));
+    return true;
+  }
   // drive only while the intro is on screen
   new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting && !running) { running = true; last = performance.now(); requestAnimationFrame(frame); }
@@ -639,6 +786,8 @@ function initScene() {
   return true;
 }
 
+// three.js is deferred and runs right before DOMContentLoaded
+addEventListener("DOMContentLoaded", () => {
 if (window.THREE && initScene() && !reduceMotion) {
   const loader = document.getElementById("loader"), bar = loader.querySelector("i"), pct = document.getElementById("load-pct");
   loader.hidden = false;
@@ -661,6 +810,7 @@ if (window.THREE && initScene() && !reduceMotion) {
     finish();
   })(t0);
 }
+});
 </script>
 </body>
 </html>
