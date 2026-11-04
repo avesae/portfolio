@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Иван Сандыга</title>
+<meta name="description" content="Иван Сандыга — backend-разработчик на Python. Сайты, API и автоматизация под ключ, удалённо.">
+<meta property="og:title" content="Иван Сандыга — backend-разработчик">
+<meta property="og:description" content="Сайты, API и автоматизация на Python. Открыт к заказам, работаю удалённо.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0d12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0d12'/%3E%3Crect x='2' y='2' width='28' height='28' fill='none' stroke='%23eaf5ff' stroke-width='2.5'/%3E%3Ctext x='15' y='21' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='12' fill='%23eaf5ff' text-anchor='middle'%3EIS%3C/text%3E%3Crect x='22' y='22' width='5' height='5' fill='%238fd3ff'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="fonts.css">
 <style>
 /* Layout: pure-black hero band, then thick-outlined blocks with hard offset shadows; light sky blue is the single loud accent. Deliberately one dark look. */
@@ -160,7 +166,7 @@ section { padding-block: 72px 8px; scroll-margin-top: 72px; }
 .proj a { text-decoration: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 26px; transition: transform .15s, box-shadow .15s; }
 .proj a:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--shadow); }
 .proj h3 { font-family: var(--display); font-weight: 800; font-size: 1.25rem; margin: 0 0 4px; }.proj p { margin: 0; color: var(--muted); font-weight: 500; }
-.case { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); margin-bottom: 8px; }
+.case { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); margin-bottom: 28px; }
 .case .shot { display: block; background: var(--deep); border-right: 2px solid var(--ink); }
 .case .shot img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; }
 .case .info { padding: 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
@@ -179,7 +185,7 @@ section { padding-block: 72px 8px; scroll-margin-top: 72px; }
 .proj .arrow { width: 46px; height: 46px; flex-shrink: 0; display: grid; place-items: center; background: var(--accent); color: var(--on-accent); border: 2px solid var(--ink); font-size: 22px; font-weight: 900; }
 
 /* contact */
-.contact { background: var(--accent); color: var(--on-accent); border-block: 2px solid var(--ink); margin-top: 72px; }
+.contact { background: var(--accent); color: var(--on-accent); border-block: 2px solid var(--ink); margin-top: 72px; scroll-margin-top: 72px; }
 .contact .wrap { padding-block: 64px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
 @media (max-width: 760px) { .contact .wrap { grid-template-columns: 1fr; } }
 .contact h2 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(2rem, 6vw, 4rem); line-height: .95; letter-spacing: -.03em; margin: 0 0 14px; text-wrap: balance; }
@@ -320,9 +326,9 @@ footer .links { display: inline-flex; align-items: center; gap: 20px; flex-wrap:
       </div>
       <div class="price"><span data-i18n="k_price">Стоимость</span></div>
       <div class="box prices">
-        <div class="row"><span data-i18n="pr1">Лендинг с формой заявки и документами по 152-ФЗ</span><b data-i18n="pr1v">от 8 000 ₽</b></div>
+        <div class="row"><span data-i18n="pr1">Лендинг с формой заявки и документами по 152-⁠ФЗ</span><b data-i18n="pr1v">от 8 000 ₽</b></div>
         <div class="row"><span data-i18n="pr2">Многостраничный сайт</span><b data-i18n="pr2v">от 20 000 ₽</b></div>
-        <div class="row"><span data-i18n="pr4">Доработка готового сайта под 152-ФЗ: согласие, cookie-баннер, документы</span><b data-i18n="pr4v">от 3 000 ₽</b></div>
+        <div class="row"><span data-i18n="pr4">Доработка готового сайта под 152-⁠ФЗ: согласие, cookie-баннер, документы</span><b data-i18n="pr4v">от 3 000 ₽</b></div>
       </div>
       <p class="price-note" data-i18n="pr_note">Это ориентир. Точную стоимость назову после обсуждения задачи.</p>
     </div>
@@ -333,8 +339,8 @@ footer .links { display: inline-flex; align-items: center; gap: 20px; flex-wrap:
       <div class="sec-head"><span class="tag">03</span><h2 data-i18n="t_skills">Навыки</h2></div>
       <div class="skills">
         <div class="box skill"><h3 data-i18n="g1">Языки</h3><ul><li>Python</li><li>JavaScript</li><li>TypeScript</li><li>HTML</li><li>CSS</li></ul></div>
-        <div class="box skill"><h3 data-i18n="g2">Разработка</h3><ul><li>Next.js</li><li>Tailwind CSS</li><li>Backend</li><li>API</li><li data-i18n="g2b">Веб-сайты</li></ul></div>
-        <div class="box skill"><h3 data-i18n="g3">Инструменты</h3><ul><li>Git</li><li>GitHub</li><li data-i18n="g3d">ИИ-ассистенты</li></ul></div>
+        <div class="box skill"><h3 data-i18n="g2">Разработка</h3><ul><li>FastAPI</li><li>PostgreSQL</li><li>REST API</li><li>Next.js</li><li>Tailwind CSS</li><li data-i18n="g2b">Веб-сайты</li></ul></div>
+        <div class="box skill"><h3 data-i18n="g3">Инструменты</h3><ul><li>Git</li><li>GitHub</li><li>Docker</li><li>pytest</li><li data-i18n="g3d">ИИ-ассистенты</li></ul></div>
         <div class="box skill"><h3 data-i18n="g4">Личные качества</h3><ul><li data-i18n="g4a">Командная работа</li><li data-i18n="g4b">Быстрое обучение</li><li data-i18n="g4c">Работа в дедлайн</li></ul></div>
       </div>
     </div>
@@ -464,9 +470,9 @@ const T = {
     s3_t: "Automation", s3_d: "Scripts and integrations that save time on routine work.",
     s4_t: "Prototypes & AI", s4_d: "Fast MVPs and solutions that use artificial intelligence.",
     k_price: "Pricing",
-    pr1: "Landing page with a request form and 152-FZ documents", pr1v: "from 8,000 ₽",
+    pr1: "Landing page with a request form and 152-⁠FZ documents", pr1v: "from 8,000 ₽",
     pr2: "Multi-page website", pr2v: "from 20,000 ₽",
-    pr4: "Bringing an existing site in line with 152-FZ: consent, cookie banner, documents", pr4v: "from 3,000 ₽",
+    pr4: "Bringing an existing site in line with 152-⁠FZ: consent, cookie banner, documents", pr4v: "from 3,000 ₽",
     pr_note: "These are starting prices. I'll give an exact quote after we discuss the task.",
     t_skills: "Skills",
     g1: "Languages", g2: "Development", g2b: "Websites", g3: "Tools", g3d: "AI assistants",
@@ -524,10 +530,15 @@ if (location.hash === "#privacy") showPolicy();
 const copyBtn = document.getElementById("copy-mail");
 copyBtn.addEventListener("click", () => {
   const done = () => { copyBtn.textContent = T[lang].copied; setTimeout(() => { copyBtn.textContent = T[lang].copy; }, 1500); };
-  navigator.clipboard.writeText(copyBtn.dataset.copy).then(done).catch(() => {
+  const fallback = () => {
     const r = document.createRange(); r.selectNodeContents(document.getElementById("mail-addr"));
     const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-  });
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    if (ok) done();
+  };
+  if (navigator.clipboard) navigator.clipboard.writeText(copyBtn.dataset.copy).then(done).catch(fallback);
+  else fallback();
 });
 
 const tok = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
