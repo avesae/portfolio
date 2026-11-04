@@ -345,6 +345,22 @@ footer .links { display: inline-flex; align-items: center; gap: 20px; flex-wrap:
     <div class="wrap">
       <div class="sec-head"><span class="tag">04</span><h2 data-i18n="t_projects">Проекты</h2></div>
       <article class="box case">
+        <a class="shot" href="https://fade-and-blade-kappa.vercel.app" target="_blank" rel="noopener" aria-label="Fade &amp; Blade">
+          <img src="images/barbershop.jpg" width="800" height="500" alt="Главная страница сайта барбершопа Fade &amp; Blade" loading="lazy">
+        </a>
+        <div class="info">
+          <span class="kind" data-i18n="c2_kind">Кейс · Backend</span>
+          <h3 data-i18n="c2_t">Fade &amp; Blade — онлайн-запись для барбершопа</h3>
+          <p data-i18n="c2_d">Система записи для салона: лендинг с записью, админка с расписанием, клиентами и статистикой, напоминания и лист ожидания. Защита от двойной записи на уровне базы, 76 тестов и CI, запуск одной командой через Docker Compose.</p>
+          <p class="law" data-i18n="c2_law">152-ФЗ: согласие до сбора данных с фиксацией версии, удаление данных по запросу клиента, хранение только на своём сервере в РФ, без сторонних CRM и счётчиков.</p>
+          <ul class="stack"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Docker</li></ul>
+          <div class="links">
+            <a class="demo" href="https://fade-and-blade-kappa.vercel.app" target="_blank" rel="noopener" data-i18n="c_demo">Демо ↗</a>
+            <a class="code" href="https://github.com/avesae/barbershop" target="_blank" rel="noopener" data-i18n="c_code">Код на GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+      <article class="box case">
         <a class="shot" href="https://openroute-agency.netlify.app" target="_blank" rel="noopener" aria-label="Openroute">
           <img src="images/openroute.jpg" width="800" height="500" alt="Главная страница сайта Openroute" loading="lazy">
         </a>
@@ -462,6 +478,9 @@ const T = {
     c1_kind: "Case · Website", c1_t: "Openroute — travel agency website",
     c1_d: "A bilingual multi-page website: tour catalog with filters, tour-matching quiz, price calculator, AI assistant.",
     c1_law: "Built for Russian law: 152-FZ personal data consent with logging, cookie banner with category choice, Yandex Metrica and Maps, requests sent via a Russian email service.",
+    c2_kind: "Case · Backend", c2_t: "Fade & Blade — online booking for a barbershop",
+    c2_d: "A booking system for a salon: landing page with booking, admin panel with schedule, clients and statistics, reminders and a waiting list. Double-booking protection at the database level, 76 tests and CI, runs with a single Docker Compose command.",
+    c2_law: "152-FZ: consent before data collection with version logging, data deletion on the client's request, storage only on its own server in Russia, no third-party CRMs or analytics.",
     c_demo: "Demo ↗", c_code: "Code on GitHub ↗",
     t_contact: "Let's work together",
     c_text: "Have a task or an idea? Message me by email or on Telegram, I'll be happy to discuss the details. You can find code samples on my GitHub.",
